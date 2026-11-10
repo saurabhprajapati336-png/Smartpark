@@ -1,0 +1,456 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f7fb;
+  color: #172033;
+}
+
+.parking-header {
+  background: #14213d;
+  color: white;
+  padding: 25px 8%;
+}
+
+.parking-header h1 span {
+  color: #22c55e;
+}
+
+.parking-header p {
+  margin-top: 8px;
+  color: #cbd5e1;
+}
+
+.parking-main {
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.parking-main h2 {
+  font-size: 32px;
+}
+
+.subtitle {
+  color: #64748b;
+  margin: 12px 0 30px;
+}
+
+.vehicle-options {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.vehicle-options button {
+  padding: 14px 25px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.vehicle-options button.active {
+  background: #16a36a;
+  color: white;
+  border-color: #16a36a;
+}
+
+.parking-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 35px 0;
+}
+
+.parking-stats div {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px #00000008;
+}
+
+.parking-stats h3 {
+  color: #16a36a;
+  font-size: 30px;
+}
+
+.parking-stats p {
+  color: #64748b;
+  margin-top: 8px;
+}
+
+.slot-heading {
+  margin-bottom: 25px;
+  font-size: 24px;
+}
+
+.slot-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.slot-card {
+  background: white;
+  padding: 25px 12px;
+  border-radius: 12px;
+  border: 2px solid #ddd;
+}
+
+.slot-card.available {
+  border-color: #22c55e;
+}
+
+.slot-card.reserved {
+  border-color: #ef4444;
+  background: #fff1f1;
+}
+
+.slot-card p {
+  margin: 12px 0;
+  font-weight: bold;
+}
+
+.slot-card.available p {
+  color: #16a34a;
+}
+
+.slot-card.reserved p {
+  color: #dc2626;
+}
+
+.slot-card button {
+  padding: 9px 13px;
+  border: none;
+  border-radius: 7px;
+  background: #16a36a;
+  color: white;
+  cursor: pointer;
+}
+
+.slot-card.reserved button {
+  background: #dc2626;
+}
+
+.allocate-btn {
+  margin-top: 35px;
+  padding: 16px 30px;
+  background: #14213d;
+  color: white;
+  border: none;
+  border-radius: 9px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.booking-message,
+.booking-result {
+  margin: 25px auto;
+  padding: 20px;
+  background: #e0f7e9;
+  border-radius: 10px;
+  max-width: 500px;
+  line-height: 1.8;
+}
+
+.parking-footer {
+  background: #14213d;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: 50px;
+}
+
+@media (max-width: 700px) {
+  .slot-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .parking-stats {
+    gap: 8px;
+  }
+
+  .parking-stats div {
+    padding: 15px 5px;
+  }
+
+  .parking-main h2 {
+    font-size: 25px;
+  }
+}
+.user-welcome {
+  background: white;
+  padding: 18px 22px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.user-welcome h2 {
+  color: #0d9488;
+  margin-bottom: 8px;
+}
+
+.user-welcome p {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.duration-section {
+  background: white;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.duration-section label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.duration-section select {
+  width: 100%;
+  max-width: 250px;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+
+.duration-section p {
+  margin-top: 12px;
+}
+
+.dashboard-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* BOOKING HISTORY STATUS COLORS */
+
+.slot-card.reserved {
+  border-left: 5px solid #2563eb;
+}
+
+.slot-card.occupied {
+  border-left: 5px solid #d97706;
+}
+
+.slot-card.completed {
+  border-left: 5px solid #16a34a;
+}
+
+.slot-card.cancelled {
+  border-left: 5px solid #dc2626;
+}
+
+/* BOOKING HISTORY CARD */
+
+.slot-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.slot-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* BOOKING MESSAGE */
+
+.booking-message {
+  padding: 12px 16px;
+  margin: 15px 0;
+  border-radius: 6px;
+  background: #e0f2fe;
+  color: #075985;
+  font-weight: 500;
+}
+
+/* BOOKING BUTTON */
+
+.slot-card button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #dc2626;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.slot-card button:hover {
+  background: #b91c1c;
+}
+/* BOOKING RECEIPT BUTTON */
+.receipt-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 7px;
+  cursor: pointer;
+  margin: 8px 5px;
+}
+
+.receipt-btn:hover {
+  background: #1d4ed8;
+}
+
+/* RECEIPT OVERLAY */
+.receipt-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+/* RECEIPT CONTAINER */
+.receipt-container {
+  background: white;
+  color: #1f2937;
+  width: 100%;
+  max-width: 500px;
+  padding: 30px;
+  border-radius: 12px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.receipt-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.receipt-header h2 {
+  color: #111827;
+  margin-bottom: 5px;
+}
+
+.receipt-header h2 span {
+  color: #2563eb;
+}
+
+.receipt-status {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 14px;
+  background: #dcfce7;
+  color: #166534;
+  border-radius: 20px;
+}
+
+.receipt-details p {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e7eb;
+  overflow-wrap: anywhere;
+}
+
+.receipt-details p span {
+  text-align: right;
+}
+
+.receipt-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.receipt-total h2 {
+  color: #15803d;
+}
+
+.receipt-thankyou {
+  text-align: center;
+  margin: 20px 0;
+  color: #64748b;
+}
+
+.receipt-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.receipt-actions button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  color: white;
+}
+
+.print-receipt-btn {
+  background: #15803d;
+}
+
+.close-receipt-btn {
+  background: #64748b;
+}
+
+/* PRINT ONLY RECEIPT */
+@media print {
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+
+  body * {
+    visibility: hidden !important;
+  }
+
+  .receipt-container,
+  .receipt-container * {
+    visibility: visible !important;
+  }
+
+  .receipt-overlay {
+    position: absolute;
+    inset: 0;
+    background: white;
+    display: block;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .receipt-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: none;
+    max-height: none;
+    overflow: visible;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .receipt-actions {
+    display: none !important;
+  }
+}
