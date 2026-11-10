@@ -18,8 +18,8 @@ const adminOnly = require("./middleware/adminMiddleware");
 
 const app = express();
 
-// Trust proxy: configure appropriately when deployed behind a trusted proxy
-// app.set("trust proxy", 1);
+// Trust proxy (Render deployment)
+app.set("trust proxy", 1);
 
 // SECURITY MIDDLEWARE
 app.use(helmet());
@@ -28,6 +28,7 @@ app.use(helmet());
 const allowedOrigins = [
   "http://localhost:5173",
   "http://127.0.0.1:5173",
+  "https://smartpark12.vercel.app",
 ];
 
 app.use(
